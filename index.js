@@ -112,7 +112,7 @@ function authSignInWithGoogle() {
         .then((result) => {
             console.log("Signed in with Google")
         }).catch((error) => {
-            console.error(error.message)
+            alert(error.message)
         })
 }
 
