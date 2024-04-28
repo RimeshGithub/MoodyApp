@@ -22,11 +22,11 @@ import { getFirestore,
 /* === Firebase Setup === */
 /* IMPORTANT: Replace this with your own firebaseConfig when doing challenges */
 const firebaseConfig = {
-    apiKey: "AIzaSyBM1JtWaj4B_RyDqfnl9yqULGf3U0L33Sk",
-    authDomain: "moody-8f7be.firebaseapp.com",
-    projectId: "moody-8f7be",
-    storageBucket: "moody-8f7be.appspot.com"
-}
+    apiKey: "AIzaSyCFuVQ1tRwEtjvykx58xXLYkQn-YKRouUE",
+    authDomain: "mydumbproject.firebaseapp.com",
+    projectId: "mydumbproject",
+    storageBucket: "mydumbproject.appspot.com"
+  }
 
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
