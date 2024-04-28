@@ -1,12 +1,12 @@
 /* === Imports === */
-import { initializeApp } from "firebase/app"
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js"
 import { getAuth,
          createUserWithEmailAndPassword,
          signInWithEmailAndPassword,
          signOut,
          onAuthStateChanged, 
          GoogleAuthProvider,
-         signInWithPopup } from "firebase/auth"
+         signInWithPopup } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js"
 import { getFirestore,
          collection,
          addDoc,
@@ -17,10 +17,9 @@ import { getFirestore,
          orderBy,
          doc,
          updateDoc,
-         deleteDoc } from "firebase/firestore"
+         deleteDoc } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js"
 
 /* === Firebase Setup === */
-/* IMPORTANT: Replace this with your own firebaseConfig when doing challenges */
 const firebaseConfig = {
     apiKey: "AIzaSyCFuVQ1tRwEtjvykx58xXLYkQn-YKRouUE",
     authDomain: "mydumbproject.firebaseapp.com",
@@ -113,7 +112,7 @@ function authSignInWithGoogle() {
         .then((result) => {
             console.log("Signed in with Google")
         }).catch((error) => {
-            console.error(error.message)
+            alert(error.message)
         })
 }
 
@@ -209,12 +208,7 @@ function fetchTodayPosts(user) {
 function fetchWeekPosts(user) {
     const startOfWeek = new Date()
     startOfWeek.setHours(0, 0, 0, 0)
-    
-    if (startOfWeek.getDay() === 0) { // If today is Sunday
-        startOfWeek.setDate(startOfWeek.getDate() - 6) // Go to previous Monday
-    } else {
-        startOfWeek.setDate(startOfWeek.getDate() - startOfWeek.getDay() + 1)
-    }
+    startOfWeek.setDay(0)
     
     const endOfDay = new Date()
     endOfDay.setHours(23, 59, 59, 999)
