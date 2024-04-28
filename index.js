@@ -1,12 +1,12 @@
 /* === Imports === */
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js"
+import { initializeApp } from "firebase/app"
 import { getAuth,
          createUserWithEmailAndPassword,
          signInWithEmailAndPassword,
          signOut,
          onAuthStateChanged, 
          GoogleAuthProvider,
-         signInWithPopup } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js"
+         signInWithPopup } from "firebase/auth"
 import { getFirestore,
          collection,
          addDoc,
@@ -17,15 +17,16 @@ import { getFirestore,
          orderBy,
          doc,
          updateDoc,
-         deleteDoc } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js"
+         deleteDoc } from "firebase/firestore"
 
 /* === Firebase Setup === */
+/* IMPORTANT: Replace this with your own firebaseConfig when doing challenges */
 const firebaseConfig = {
-    apiKey: "AIzaSyCFuVQ1tRwEtjvykx58xXLYkQn-YKRouUE",
-    authDomain: "mydumbproject.firebaseapp.com",
-    projectId: "mydumbproject",
-    storageBucket: "mydumbproject.appspot.com"
-  }
+    apiKey: "AIzaSyBM1JtWaj4B_RyDqfnl9yqULGf3U0L33Sk",
+    authDomain: "moody-8f7be.firebaseapp.com",
+    projectId: "moody-8f7be",
+    storageBucket: "moody-8f7be.appspot.com"
+}
 
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
@@ -112,7 +113,7 @@ function authSignInWithGoogle() {
         .then((result) => {
             console.log("Signed in with Google")
         }).catch((error) => {
-            alert(error.message)
+            console.error(error.message)
         })
 }
 
@@ -208,7 +209,12 @@ function fetchTodayPosts(user) {
 function fetchWeekPosts(user) {
     const startOfWeek = new Date()
     startOfWeek.setHours(0, 0, 0, 0)
-    startOfWeek.setDay(0)
+    
+    if (startOfWeek.getDay() === 0) { // If today is Sunday
+        startOfWeek.setDate(startOfWeek.getDate() - 6) // Go to previous Monday
+    } else {
+        startOfWeek.setDate(startOfWeek.getDate() - startOfWeek.getDay() + 1)
+    }
     
     const endOfDay = new Date()
     endOfDay.setHours(23, 59, 59, 999)
