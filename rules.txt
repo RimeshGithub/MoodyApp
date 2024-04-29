@@ -12,10 +12,8 @@ service cloud.firestore {
     }
     
     match /{document=**} {
-	    allow create: if isSignedIn();
+	    allow write: if isSignedIn();
       allow read: if isSignedIn() && userIsAuthorOfPost();
-      allow update: if isSignedIn() && userIsAuthorOfPost();
-      allow delete: if isSignedIn() && userIsAuthorOfPost();
     }
   }
 }
