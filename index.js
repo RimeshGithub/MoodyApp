@@ -375,7 +375,7 @@ function postButtonPressed() {
         resetAllMoodElements(moodEmojiEls)
     }
 
-    else if (!moodState){
+    else if (!moodState && postBody){
         alert("Please select a mood emoji")
     }
 }
