@@ -117,6 +117,7 @@ function authSignInWithGoogle() {
             console.log("Signed in with Google")
         }).catch((error) => {
             console.error(error.message)
+            alert(error.message)
         })
 }
 
@@ -130,6 +131,7 @@ function authSignInWithEmail() {
         })
         .catch((error) => {
             console.error(error.message)
+            alert(error.message)
         })
 }
 
@@ -143,6 +145,7 @@ function authCreateAccountWithEmail() {
         })
         .catch((error) => {
             console.error(error.message) 
+            alert(error.message)
         })
 }
 
@@ -151,6 +154,7 @@ function authSignOut() {
         .then(() => {
         }).catch((error) => {
             console.error(error.message)
+            alert(error.message)
         })
 }
 
@@ -167,6 +171,7 @@ async function addPostToDB(postBody, user) {
         console.log("Document written with ID: ", docRef.id)
     } catch (error) {
         console.error(error.message)
+        alert(error.message)
     }
 }
 
