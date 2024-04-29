@@ -1,12 +1,12 @@
 /* === Imports === */
-import { initializeApp } from "firebase/app"
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"
 import { getAuth,
          createUserWithEmailAndPassword,
          signInWithEmailAndPassword,
          signOut,
          onAuthStateChanged, 
          GoogleAuthProvider,
-         signInWithPopup } from "firebase/auth"
+         signInWithPopup } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js"
 import { getFirestore,
          collection,
          addDoc,
@@ -17,7 +17,7 @@ import { getFirestore,
          orderBy,
          doc,
          updateDoc,
-         deleteDoc } from "firebase/firestore"
+         deleteDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js"
 
 /* === Firebase Setup === */
 /* IMPORTANT: Replace this with your own firebaseConfig when doing challenges */
