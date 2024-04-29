@@ -1,28 +1,31 @@
 /* === Imports === */
-import { initializeApp } from "firebase/app"
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"
 import { getAuth,
          createUserWithEmailAndPassword,
          signInWithEmailAndPassword,
          signOut,
          onAuthStateChanged, 
          GoogleAuthProvider,
-         signInWithPopup } from "firebase/auth"
+         signInWithPopup } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js"
 import { getFirestore,
          collection,
          addDoc,
          serverTimestamp,
          onSnapshot,
          query,
-         where } from "firebase/firestore"
+         where } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js"
 
 /* === Firebase Setup === */
 /* IMPORTANT: Replace this with your own firebaseConfig when doing challenges */
 const firebaseConfig = {
-    apiKey: "AIzaSyBM1JtWaj4B_RyDqfnl9yqULGf3U0L33Sk",
-    authDomain: "moody-8f7be.firebaseapp.com",
-    projectId: "moody-8f7be",
-    storageBucket: "moody-8f7be.appspot.com"
-}
+    apiKey: "AIzaSyCqkOqOIfAzP7OikWdFu8WX8LdkhHjGUb8",
+    authDomain: "mydumbproject-3ca4c.firebaseapp.com",
+    databaseURL: "https://mydumbproject-3ca4c-default-rtdb.firebaseio.com",
+    projectId: "mydumbproject-3ca4c",
+    storageBucket: "mydumbproject-3ca4c.appspot.com",
+    messagingSenderId: "294009624284",
+    appId: "1:294009624284:web:8a6623a746726214058619"
+  }
 
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
