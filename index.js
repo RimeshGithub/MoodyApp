@@ -374,6 +374,10 @@ function postButtonPressed() {
         clearInputField(textareaEl)
         resetAllMoodElements(moodEmojiEls)
     }
+
+    else if (!moodState){
+        alert("Please select a mood emoji")
+    }
 }
 
 function clearAll(element) {
