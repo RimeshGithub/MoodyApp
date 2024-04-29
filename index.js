@@ -20,11 +20,14 @@ import { getFirestore,
          deleteDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js"
 
 /* === Firebase Setup === */
+
 const firebaseConfig = {
-    apiKey: "AIzaSyCFuVQ1tRwEtjvykx58xXLYkQn-YKRouUE",
-    authDomain: "mydumbproject.firebaseapp.com",
-    projectId: "mydumbproject",
-    storageBucket: "mydumbproject.appspot.com"
+    apiKey: "AIzaSyCqkOqOIfAzP7OikWdFu8WX8LdkhHjGUb8",
+    authDomain: "mydumbproject-3ca4c.firebaseapp.com",
+    projectId: "mydumbproject-3ca4c",
+    storageBucket: "mydumbproject-3ca4c.appspot.com",
+    messagingSenderId: "294009624284",
+    appId: "1:294009624284:web:8a6623a746726214058619"
   }
 
 const app = initializeApp(firebaseConfig)
