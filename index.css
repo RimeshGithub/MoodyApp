@@ -33,7 +33,7 @@ html, body {
 
 body {
     color: var(--dark-color);
-    background: linear-gradient(to bottom, #a267ac 0%, #8c6bad 25%, #7670ae 50%, #5f75af 75%, #487ab0 100%);
+    background-color: var(--secondary-light-color);
     font-family: var(--primary-font);
 }
 
