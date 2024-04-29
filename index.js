@@ -13,7 +13,8 @@ import { getFirestore,
          serverTimestamp,
          onSnapshot,
          query,
-         where } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js"
+         where,
+         orderBy } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js"
 
 /* === Firebase Setup === */
 /* IMPORTANT: Replace this with your own firebaseConfig when doing challenges */
@@ -160,8 +161,7 @@ async function addPostToDB(postBody, user) {
 function fetchInRealtimeAndRenderPostsFromDB(user) {
     const postsRef = collection(db, collectionName)
     
-    /* Challenge: Change the query to use orderBy to order by date, with the newest posts on top.                 You'll need to import the orderBy function from 'firebase/firestore' first. */
-    const q = query(postsRef, where("uid", "==", user.uid))
+    const q = query(postsRef, where("uid", "==", user.uid), orderBy("createdAt", "desc"))
     
     onSnapshot(q, (querySnapshot) => {
         clearAll(postsEl)
