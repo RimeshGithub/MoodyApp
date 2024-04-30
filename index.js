@@ -214,10 +214,28 @@ function fetchTodayPosts(user) {
     fetchInRealtimeAndRenderPostsFromDB(q, user)                  
 }
 
+function setWeekday(date, targetWeekday) {
+    // Weekdays are indexed as 0 (Sunday) to 6 (Saturday)
+    let currentWeekday = date.getDay()
+
+    // Calculate how many days to add to get to the target weekday
+    let daysToAdd = (targetWeekday - currentWeekday + 7) % 7
+    
+    // If daysToAdd is 0, the day is already the target weekday
+    if (daysToAdd === 0 && date.getDay() !== targetWeekday) {
+        // This line is just a safety net, although the scenario is impossible in this setup
+        daysToAdd = 7
+    }
+    
+    // Add the days to the date object
+    date.setDate(date.getDate() + daysToAdd)
+    return date
+}
+
 function fetchWeekPosts(user) {
-    const startOfWeek = new Date()
+    let startOfWeek = new Date()
     startOfWeek.setHours(0, 0, 0, 0)
-    startOfWeek.setDay(0)
+    startOfWeek = setWeekday(startOfWeek, 0)
     
     const endOfDay = new Date()
     endOfDay.setHours(23, 59, 59, 999)
