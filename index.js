@@ -218,17 +218,11 @@ function setWeekday(date, targetWeekday) {
     // Weekdays are indexed as 0 (Sunday) to 6 (Saturday)
     let currentWeekday = date.getDay()
 
-    // Calculate how many days to add to get to the target weekday
-    let daysToAdd = (targetWeekday - currentWeekday + 7) % 7
+    // Calculate how many days to Subtract to get to the target weekday
+    let daysToSubtract = (currentWeekday - targetWeekday + 7) % 7
     
-    // If daysToAdd is 0, the day is already the target weekday
-    if (daysToAdd === 0 && date.getDay() !== targetWeekday) {
-        // This line is just a safety net, although the scenario is impossible in this setup
-        daysToAdd = 7
-    }
-    
-    // Add the days to the date object
-    date.setDate(date.getDate() + daysToAdd)
+    // Subtract the days to the date object
+    date.setDate(date.getDate() - daysToSubtract)
     return date
 }
 
