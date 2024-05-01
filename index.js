@@ -441,7 +441,7 @@ function showUserGreeting(element, user) {
         
         element.textContent = `Hey ${userFirstName}, how are you?`
     } else {
-        element.textContent = `Hey friend, how are you?`
+        element.textContent = `Hey buddy, how are you?`
     }
 }
 
